@@ -7,7 +7,8 @@ export const signup = async (req: Request, res: Response, next: NextFunction) =>
     
     res.cookie('token', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure: true,
+      sameSite: 'none',
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
@@ -29,7 +30,8 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
 
     res.cookie('token', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure: true,
+      sameSite: 'none',
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -48,6 +50,8 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
 export const logout = (req: Request, res: Response) => {
   res.cookie('token', 'loggedout', {
     httpOnly: true,
+    secure: true,
+    sameSite: 'none',
     expires: new Date(Date.now() + 10 * 1000),
   });
   res.status(200).json({ status: 'success' });
