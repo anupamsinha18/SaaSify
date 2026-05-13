@@ -13,7 +13,7 @@ export const validate = (schema: ZodSchema<any>) => {
       next();
     } catch (error: any) {
       if (error instanceof ZodError) {
-        const message = error.errors.map((e: any) => `${e.path.join('.')}: ${e.message}`).join(', ');
+        const message = (error as any).errors.map((e: any) => `${e.path.join('.')}: ${e.message}`).join(', ');
         next(new BadRequestError(message));
       } else {
         next(error);
