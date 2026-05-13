@@ -32,10 +32,7 @@ export const getTasks = async (userId: string, role: string) => {
   } else {
     return prisma.task.findMany({
       where: {
-        OR: [
-          { assignedToId: userId },
-          { project: { members: { some: { id: userId } } } }
-        ]
+        assignedToId: userId
       },
       include: { assignedTo: true, project: { select: { title: true } } },
     });
@@ -50,10 +47,10 @@ export const updateTask = async (taskId: string, data: any, userId: string, role
 
   if (!task) throw new NotFoundError('Task not found');
 
-  // Members can only update status if they are assigned to it or they are part of the project
-  // Actually let's allow project members to update any task in the project for simplicity
-  if (role !== 'ADMIN' && !task.project.members.some(m => m.id === userId)) {
-    throw new ForbiddenError('You do not have access to update this task');
+  if (role !== 'ADMIN') {
+    if (task.assignedToId !== userId) {
+      throw new ForbiddenError('Members can only update tasks assigned to them');
+    }
   }
 
   const updatedTask = await prisma.task.update({

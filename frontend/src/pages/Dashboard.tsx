@@ -41,6 +41,20 @@ export const Dashboard = () => {
   const completedTasks = tasks.filter(t => t.status === 'COMPLETED').length;
   const overdueTasks = tasks.filter(t => t.dueDate && new Date(t.dueDate) < new Date() && t.status !== 'COMPLETED').length;
 
+  const tasksByStatus = tasks.reduce((acc, task) => {
+    acc[task.status] = (acc[task.status] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+
+  const tasksByUser = tasks.reduce((acc, task) => {
+    if (task.assignedTo) {
+      acc[task.assignedTo.name] = (acc[task.assignedTo.name] || 0) + 1;
+    } else {
+      acc['Unassigned'] = (acc['Unassigned'] || 0) + 1;
+    }
+    return acc;
+  }, {} as Record<string, number>);
+
   const stats = [
     { name: 'Total Projects', stat: projects.length, icon: Folder, color: 'text-blue-500', bg: 'bg-blue-50' },
     { name: 'Total Tasks', stat: tasks.length, icon: CheckCircle, color: 'text-indigo-500', bg: 'bg-indigo-50' },
@@ -125,6 +139,37 @@ export const Dashboard = () => {
             ))}
             {tasks.length === 0 && (
               <p className="text-sm text-gray-500 text-center py-4">No tasks assigned.</p>
+            )}
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Tasks by Status</h2>
+          <div className="space-y-3">
+            {Object.entries(tasksByStatus).map(([status, count]) => (
+              <div key={status} className="flex items-center justify-between p-3 border border-gray-50 rounded-lg bg-gray-50/50">
+                <span className="text-sm font-medium text-gray-700">{status.replace('_', ' ')}</span>
+                <span className="text-sm font-bold text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded-md">{count}</span>
+              </div>
+            ))}
+            {Object.keys(tasksByStatus).length === 0 && (
+              <p className="text-sm text-gray-500 text-center py-2">No tasks available.</p>
+            )}
+          </div>
+        </div>
+
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Tasks per User</h2>
+          <div className="space-y-3">
+            {Object.entries(tasksByUser).map(([user, count]) => (
+              <div key={user} className="flex items-center justify-between p-3 border border-gray-50 rounded-lg bg-gray-50/50">
+                <span className="text-sm font-medium text-gray-700">{user}</span>
+                <span className="text-sm font-bold text-green-600 bg-green-50 px-2.5 py-0.5 rounded-md">{count}</span>
+              </div>
+            ))}
+            {Object.keys(tasksByUser).length === 0 && (
+              <p className="text-sm text-gray-500 text-center py-2">No tasks assigned.</p>
             )}
           </div>
         </div>

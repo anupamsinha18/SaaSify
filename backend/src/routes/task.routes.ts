@@ -9,7 +9,7 @@ const router = Router();
 router.use(authenticateUser);
 
 router.get('/', taskController.getTasks);
-router.post('/', validate(createTaskSchema), taskController.createTask);
+router.post('/', authorizeRoles('ADMIN'), validate(createTaskSchema), taskController.createTask);
 router.patch('/:id', validate(updateTaskSchema), taskController.updateTask);
 router.delete('/:id', authorizeRoles('ADMIN'), taskController.deleteTask);
 
