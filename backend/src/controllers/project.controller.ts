@@ -39,7 +39,7 @@ export const updateProject = async (req: any, res: Response, next: NextFunction)
 
 export const deleteProject = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    await projectService.deleteProject(req.params.id);
+    await projectService.deleteProject(req.params.id as string);
     res.status(204).send();
   } catch (error) {
     next(error);
