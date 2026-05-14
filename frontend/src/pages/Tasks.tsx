@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Plus, Trash2 } from 'lucide-react';
 import api from '../api/axios';
-import type { Task, Project } from '../types';
+import type { Task, Project, User } from '../types';
 import { Button } from '../components/common/Button';
 import { Input } from '../components/common/Input';
 import toast from 'react-hot-toast';
@@ -20,7 +20,8 @@ export const Tasks = () => {
     projectId: '',
     priority: 'MEDIUM',
     status: 'TODO',
-    dueDate: ''
+    dueDate: '',
+    assignedToId: ''
   });
 
   const { data: tasksData, isLoading: tasksLoading } = useQuery({
@@ -48,11 +49,11 @@ export const Tasks = () => {
   });
 
   const createMutation = useMutation({
-    mutationFn: (data: typeof newTask) => api.post('/tasks', data),
+    mutationFn: (data: any) => api.post('/tasks', data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['tasks'] });
       setIsCreateOpen(false);
-      setNewTask({ title: '', description: '', projectId: '', priority: 'MEDIUM', status: 'TODO', dueDate: '' });
+      setNewTask({ title: '', description: '', projectId: '', priority: 'MEDIUM', status: 'TODO', dueDate: '', assignedToId: '' });
       toast.success('Task created');
     },
     onError: (error: any) => {

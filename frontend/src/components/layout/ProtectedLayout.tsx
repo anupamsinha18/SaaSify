@@ -27,9 +27,9 @@ export const ProtectedLayout = () => {
         <div className="flex flex-col flex-grow pt-5 overflow-y-auto">
           <div className="flex items-center flex-shrink-0 px-4 mb-8">
             <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center mr-3 shadow-indigo-200 shadow-lg">
-              <span className="text-white font-bold text-2xl">S</span>
+              <span className="text-white font-bold text-2xl">N</span>
             </div>
-            <span className="text-xl font-bold text-gray-900 tracking-tight">SaaSify</span>
+            <span className="text-xl font-bold text-gray-900 tracking-tight">Nexus</span>
           </div>
           <nav className="flex-1 px-3 space-y-1">
             {navigation.map((item) => {
@@ -115,9 +115,9 @@ export const ProtectedLayout = () => {
           <div className="flex flex-col flex-grow pt-5 overflow-y-auto">
             <div className="flex items-center flex-shrink-0 px-4 mb-8">
               <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center mr-3 shadow-indigo-200 shadow-lg">
-                <span className="text-white font-bold text-2xl">S</span>
+                <span className="text-white font-bold text-2xl">N</span>
               </div>
-              <span className="text-xl font-bold text-gray-900 tracking-tight">SaaSify</span>
+              <span className="text-xl font-bold text-gray-900 tracking-tight">Nexus</span>
             </div>
             <nav className="flex-1 px-3 space-y-1">
               {navigation.map((item) => {
@@ -177,9 +177,9 @@ export const ProtectedLayout = () => {
         <div className="md:hidden flex items-center justify-between bg-white border-b border-gray-200 px-4 py-3">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shadow-md">
-              <span className="text-white font-bold text-lg">S</span>
+              <span className="text-white font-bold text-lg">N</span>
             </div>
-            <span className="text-lg font-bold text-gray-900">SaaSify</span>
+            <span className="text-lg font-bold text-gray-900">Nexus</span>
           </div>
           <button 
             className="text-gray-500 hover:text-gray-900 p-1 -mr-1 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"

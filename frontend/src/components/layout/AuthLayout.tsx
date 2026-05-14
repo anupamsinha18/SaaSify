@@ -8,10 +8,10 @@ interface AuthLayoutProps {
 }
 
 const features = [
-  "Manage projects and tasks effortlessly",
-  "Role-based access control out of the box",
-  "Real-time collaboration with your team",
-  "Detailed analytics and progress tracking"
+  "Organize your work without the busywork",
+  "Secure space for everyone on your team",
+  "Real talk, real-time collaboration",
+  "Clear insights into your team's progress"
 ];
 
 export const AuthLayout = ({ children, title, subtitle }: AuthLayoutProps) => {
@@ -28,16 +28,16 @@ export const AuthLayout = ({ children, title, subtitle }: AuthLayoutProps) => {
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-16">
             <div className="w-10 h-10 bg-gray-900 rounded-xl flex items-center justify-center shadow-lg shadow-gray-900/20">
-              <span className="text-white font-bold text-2xl tracking-tighter">S</span>
+              <span className="text-white font-bold text-2xl tracking-tighter">N</span>
             </div>
-            <span className="text-2xl font-bold text-gray-900 tracking-tight">SaaSify</span>
+            <span className="text-2xl font-bold text-gray-900 tracking-tight">Nexus</span>
           </div>
           
           <h1 className="text-4xl xl:text-5xl font-bold text-gray-900 tracking-tight mb-6 leading-[1.15]">
-            The modern way to <br/> build and collaborate.
+            Get your team's work <br/> in sync, effortlessly.
           </h1>
           <p className="text-lg text-gray-600 mb-12 max-w-md leading-relaxed font-medium">
-            Streamline your workflow with our powerful, intuitive project management platform designed for ambitious teams.
+            Forget messy spreadsheets and scattered threads. Manage your projects in one calm, organized space built for how you actually work.
           </p>
 
           <div className="space-y-6">
@@ -53,7 +53,7 @@ export const AuthLayout = ({ children, title, subtitle }: AuthLayoutProps) => {
         </div>
 
         <div className="relative z-10 text-sm text-gray-500 font-medium mt-12">
-          © {new Date().getFullYear()} SaaSify Inc. All rights reserved.
+          © {new Date().getFullYear()} Nexus Inc. All rights reserved.
         </div>
       </div>
 
@@ -63,9 +63,9 @@ export const AuthLayout = ({ children, title, subtitle }: AuthLayoutProps) => {
            {/* Mobile Branding */}
            <div className="flex lg:hidden items-center gap-3 mb-10 justify-center">
             <div className="w-10 h-10 bg-gray-900 rounded-xl flex items-center justify-center shadow-lg shadow-gray-900/20">
-              <span className="text-white font-bold text-2xl tracking-tighter">S</span>
+              <span className="text-white font-bold text-2xl tracking-tighter">N</span>
             </div>
-            <span className="text-2xl font-bold text-gray-900 tracking-tight">SaaSify</span>
+            <span className="text-2xl font-bold text-gray-900 tracking-tight">Nexus</span>
           </div>
 
           <div className="mb-8 text-center lg:text-left">

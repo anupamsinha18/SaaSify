@@ -51,7 +51,7 @@ export const Signup = () => {
   return (
     <AuthLayout 
       title="Create your account" 
-      subtitle="Join thousands of teams already building with SaaSify."
+      subtitle="Join thousands of teams already building with Nexus."
     >
       <form className="space-y-5" onSubmit={handleSubmit}>
         <RoleSelector value={role} onChange={setRole} />

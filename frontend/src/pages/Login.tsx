@@ -60,9 +60,6 @@ export const Login = () => {
               <label className="block text-sm font-semibold text-gray-700">
                 Password
               </label>
-              <Link to="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500 hover:underline transition-all">
-                Forgot password?
-              </Link>
             </div>
             <Input
               type="password"

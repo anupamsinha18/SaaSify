@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { Users as UsersIcon, Shield, User as UserIcon } from 'lucide-react';
+import { Shield, User as UserIcon } from 'lucide-react';
 import api from '../api/axios';
 import type { User } from '../types';
 
